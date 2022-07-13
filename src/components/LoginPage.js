@@ -5,7 +5,7 @@ import logo from '../assets/logo.svg';
 
 export default function LoginPage() {
   return (
-    <>
+    <div className="login-page">
       <img className="logo" alt="logo" src={logo} />
       <div className="login-form">
         <form action="">
@@ -19,6 +19,6 @@ export default function LoginPage() {
           <p className="login-text">Don't have an account? <a href="#">Sign Up</a></p>
         </form>
       </div>
-    </>
+    </div>
   );
 }
