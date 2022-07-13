@@ -1,10 +1,13 @@
-body {
+.login-page {
     background-color: #10141e;
+    height: 100vh;
+    padding-top: 3rem;
+    box-sizing: border-box;
   }
   
   .logo {
     display: block;
-    margin: 3rem auto;
+    margin: auto;
   }
   
   .login-form {
@@ -12,6 +15,7 @@ body {
     font-family: 'Outfit';
     margin-left: 24px;
     margin-right: 24px;
+    margin-top: 3.625rem;
     padding: 24px;
     border-radius: 0.625rem;
   }
