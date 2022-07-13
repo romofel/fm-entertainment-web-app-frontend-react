@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
+import './SignupPage.css';
 
 export default function SignupPage () {
   return (
