@@ -1,5 +1,8 @@
 .signup-page {
   background-color: #10141e;
+  height: 100vh;
+  padding-top: 3rem;
+  box-sizing: border-box;
 }
 
 .logo {
