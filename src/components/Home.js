@@ -1,6 +1,17 @@
 import React from 'react';
 import Nav from './Nav';
 import SearchBar from './SearchBar';
+import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
+
+function TrendingMovie () {
+  return (
+    <div className="trending-movie">
+      <div className="bookmark-icon">
+        <img src={iconBookmarkEmpty} alt="empty bookmark" />
+      </div>
+    </div>
+  );
+}
 
 function TrendingSection () {
   return (
