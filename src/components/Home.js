@@ -15,7 +15,13 @@ function TrendingMovie () {
 
 function TrendingSection () {
   return (
-    <section id="trending">TrendingSection Component</section>
+    <section id="trending">
+      <h2 className="trending-heading">Trending</h2>
+
+      <div className="trending-row">
+        <TrendingMovie />
+      </div>
+    </section>
   );
 }
 
