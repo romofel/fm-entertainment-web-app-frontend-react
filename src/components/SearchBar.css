@@ -1,0 +1,26 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.search-bar img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.search-bar input {
+  height: 3rem;
+  width: 100%;
+  border: none;
+  background: none;
+  margin-left: 1rem;
+}
+
+.search-bar input::placeholder {
+  font-family: 'Outfit';
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+  opacity: 0.49;
+}
