@@ -8,10 +8,17 @@ function TrendingSection () {
   );
 }
 
+function RecommendedSection () {
+  return (
+    <div>RecommendedSection Component</div>
+  );
+}
+
 export default function Home() {
   return <div>
     <Nav />
     <SearchBar />
     <TrendingSection />
+    <RecommendedSection />
     </div>;
 }
