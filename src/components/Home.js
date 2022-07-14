@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 
 function TrendingSection () {
   return (
-    <div>TrendingSection Component</div>
+    <section id="trending">TrendingSection Component</section>
   );
 }
 
