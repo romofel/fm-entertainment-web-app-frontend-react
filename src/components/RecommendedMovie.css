@@ -1,0 +1,44 @@
+.recommended-movie-poster {
+  width: 10.25rem;
+  height: 6.875rem;
+  border-radius: .5rem;
+  background-image: url('../assets/thumbnails/the-great-lands/regular/small.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: .5rem;
+  box-sizing: border-box;
+}
+
+.recommended-movie .bookmark-icon {
+  margin-left: auto;
+}
+
+.recommended-movie-details {
+  display: flex;
+  align-items: center;
+  margin-top: .5rem;
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-size: 11px;
+  color: rgba(255 255 255 / 75%);
+}
+
+.recommended-movie-details li:not(:first-of-type) {
+  margin-left: 6px;
+}
+
+.recommended-movie-details li:nth-of-type(3) p {
+  margin-left: 4px;
+}
+
+.recommended-movie-details li:nth-of-type(3) {
+  display: flex;
+}
+
+.recommended-movie-title {
+  margin-top: 4px;
+  font-family: 'Outfit';
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+}

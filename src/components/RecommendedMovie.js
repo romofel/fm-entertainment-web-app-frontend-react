@@ -1,6 +1,7 @@
 import React from 'react';
 import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
+import './RecommendedMovie.css';
 
 export default function RecommendedMovie() {
   return (
