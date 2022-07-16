@@ -1,0 +1,19 @@
+section#recommended {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.recommended-heading {
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+}
+
+.recommended-grid {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import TrendingMovie from './TrendingMovie';
 import RecommendedMovie from './RecommendedMovie';
 import './TrendingSection.css';
+import './RecommendedSection.css';
 
 function TrendingSection() {
   return (
