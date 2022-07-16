@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './Nav';
 import SearchBar from './SearchBar';
 import TrendingMovie from './TrendingMovie';
+import './TrendingSection.css';
 
 function TrendingSection () {
   return (
