@@ -1,0 +1,20 @@
+section#trending {
+  padding-left: 1rem;
+}
+
+.trending-heading {
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+}
+
+.trending-row {
+  display: flex;
+  margin-top: 1rem;
+  overflow: scroll;
+}
+
+.trending-row::-webkit-scrollbar {
+  display: none;
+}
