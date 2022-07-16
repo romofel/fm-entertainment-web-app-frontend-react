@@ -1,6 +1,7 @@
 import React from 'react';
 import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
+import './TrendingMovie.css';
 
 export default function TrendingMovie () {
   return (
@@ -15,14 +16,14 @@ export default function TrendingMovie () {
             <p>2019</p>
           </li>
           <li>
-            <div class="separator"></div>
+            <div className="separator"></div>
           </li>
           <li>
             <img src={iconCategoryMovie} alt="movie icon" />
             <p>Movie</p>
           </li>
           <li>
-            <div class="separator"></div>
+            <div className="separator"></div>
           </li>
           <li>
             <p>PG</p>
