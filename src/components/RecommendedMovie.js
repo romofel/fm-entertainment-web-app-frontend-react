@@ -3,7 +3,7 @@ import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
 import './RecommendedMovie.css';
 
-export default function RecommendedMovie() {
+export default function RecommendedMovie({ movie }) {
   return (
     <div className="recommended-movie">
       <div className="recommended-movie-poster">
