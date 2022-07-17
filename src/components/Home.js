@@ -19,12 +19,14 @@ function TrendingSection() {
   );
 }
 
-function RecommendedSection() {
+function RecommendedSection({ recommended }) {
   return (
     <section id="recommended">
       <h2 className="recommended-heading">Recommended for you</h2>
       <div className="recommended-grid">
-        <RecommendedMovie />
+        {
+          recommended.map(movie => <RecommendedMovie />)
+        }
       </div>
     </section>
   );
@@ -44,7 +46,7 @@ export default function Home() {
       <Nav />
       <SearchBar />
       <TrendingSection />
-      <RecommendedSection />
+      <RecommendedSection recommended={recommended} />
     </div>
   );
 }
