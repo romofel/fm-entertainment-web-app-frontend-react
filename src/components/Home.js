@@ -5,6 +5,7 @@ import TrendingMovie from './TrendingMovie';
 import RecommendedMovie from './RecommendedMovie';
 import './TrendingSection.css';
 import './RecommendedSection.css';
+import data from '../data.json';
 
 function TrendingSection() {
   return (
