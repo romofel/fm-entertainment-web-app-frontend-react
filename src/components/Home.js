@@ -25,7 +25,7 @@ function RecommendedSection({ recommended }) {
       <h2 className="recommended-heading">Recommended for you</h2>
       <div className="recommended-grid">
         {
-          recommended.map(movie => <RecommendedMovie />)
+          recommended.map(movie => <RecommendedMovie movie={movie}/>)
         }
       </div>
     </section>
