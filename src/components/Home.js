@@ -31,6 +31,14 @@ function RecommendedSection() {
 }
 
 export default function Home() {
+  const [trending, setTrending] = React.useState([]);
+  const [recommended, setRecommended] = React.useState([]);
+
+  React.useEffect(() => {
+    setTrending(data.filter((movie) => movie.isTrending));
+    setRecommended(data.filter((movie) => !movie.isTrending));
+  }, []);
+
   return (
     <div style={{ backgroundColor: 'black' }}>
       <Nav />
