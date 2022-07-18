@@ -7,13 +7,15 @@ import './TrendingSection.css';
 import './RecommendedSection.css';
 import data from '../data.json';
 
-function TrendingSection() {
+function TrendingSection({ trending }) {
   return (
     <section id="trending">
       <h2 className="trending-heading">Trending</h2>
 
       <div className="trending-row">
-        <TrendingMovie />
+        {trending.map((movie) => (
+          <TrendingMovie />
+        ))}{' '}
       </div>
     </section>
   );
@@ -24,9 +26,9 @@ function RecommendedSection({ recommended }) {
     <section id="recommended">
       <h2 className="recommended-heading">Recommended for you</h2>
       <div className="recommended-grid">
-        {
-          recommended.map(movie => <RecommendedMovie key={movie.title} movie={movie}/>)
-        }
+        {recommended.map((movie) => (
+          <RecommendedMovie key={movie.title} movie={movie} />
+        ))}
       </div>
     </section>
   );
@@ -45,7 +47,7 @@ export default function Home() {
     <div style={{ backgroundColor: '#10141e' }}>
       <Nav />
       <SearchBar />
-      <TrendingSection />
+      <TrendingSection trending={trending} />
       <RecommendedSection recommended={recommended} />
     </div>
   );
