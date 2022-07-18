@@ -34,6 +34,10 @@ function RecommendedSection({ recommended }) {
   );
 }
 
+function SearchSection() {
+  return <div>SearchSection</div>;
+}
+
 export default function Home() {
   const [trending, setTrending] = React.useState([]);
   const [recommended, setRecommended] = React.useState([]);
