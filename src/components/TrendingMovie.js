@@ -12,7 +12,7 @@ export default function TrendingMovie({ movie }) {
     <div
       className="trending-movie"
       style={{
-        backgroundImage: `url(${posters.trending.small.get(movie.title)})`,
+        backgroundImage: `linear-gradient(to top, rgba(0 0 0 / 75%) 0%, rgba(0 0 0 / 0.01%) 50%, transparent 50%), url(${posters.trending.small.get(movie.title)})`,
       }}
     >
       <div

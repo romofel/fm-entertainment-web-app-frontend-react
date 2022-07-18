@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: .5rem;
-  background-image: linear-gradient(to top, rgba(0 0 0 / 75%) 0%, rgba(0 0 0 / 0.01%) 50%, transparent 50%), url('../assets/thumbnails/beyond-earth/trending/small.jpg');
+  /* background-image: linear-gradient(to top, rgba(0 0 0 / 75%) 0%, rgba(0 0 0 / 0.01%) 50%, transparent 50%), url('../assets/thumbnails/beyond-earth/trending/small.jpg'); */
   background-repeat: no-repeat;
   background-size: contain;
   padding: .5rem;
