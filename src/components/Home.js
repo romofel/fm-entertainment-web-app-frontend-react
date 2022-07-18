@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div style={{ backgroundColor: '#10141e' }}>
-      <Nav />
+      <Nav active={'home'} />
       <SearchBar />
       <TrendingSection trending={trending} />
       <RecommendedSection recommended={recommended} />
