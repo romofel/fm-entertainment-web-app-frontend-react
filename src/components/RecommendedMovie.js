@@ -9,7 +9,7 @@ export default function RecommendedMovie({ movie }) {
 
   return (
     <div className="recommended-movie">
-      <div style={{backgroundImage: `url(${posters.get(movie.title)}`}} className="recommended-movie-poster">
+      <div style={{backgroundImage: `url(${posters.regular.small.get(movie.title)}`}} className="recommended-movie-poster">
         <div className="bookmark-icon">
           <img src={movie.isBookmarked ? iconBookmarkFull : iconBookmarkEmpty} alt="empty bookmark" />
         </div>
