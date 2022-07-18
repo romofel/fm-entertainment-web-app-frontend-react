@@ -14,7 +14,7 @@ function TrendingSection({ trending }) {
 
       <div className="trending-row">
         {trending.map((movie) => (
-          <TrendingMovie />
+          <TrendingMovie key={movie.title} movie={movie} />
         ))}{' '}
       </div>
     </section>
