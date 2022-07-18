@@ -16,7 +16,7 @@ export default function Nav({ active }) {
         <li>
           <a href="#">
             <img
-              className={active === 'home' && 'active'}
+              className={active === 'home' ? 'active' : undefined}
               src={home}
               alt="home nav"
             />
@@ -25,7 +25,7 @@ export default function Nav({ active }) {
         <li>
           <a href="#">
             <img
-              className={active === 'movies' && 'active'}
+              className={active === 'movies' ? 'active' : undefined}
               src={movies}
               alt="movies nav"
             />
@@ -34,7 +34,7 @@ export default function Nav({ active }) {
         <li>
           <a href="#">
             <img
-              className={active === 'series' && 'active'}
+              className={active === 'series' ? 'active' : undefined}
               src={series}
               alt="series nav"
             />
@@ -43,7 +43,7 @@ export default function Nav({ active }) {
         <li>
           <a href="#">
             <img
-              className={active === 'bookmarks' && 'active'}
+              className={active === 'bookmarks' ? 'active' : undefined}
               src={bookmark}
               alt="bookmarks nav"
             />
