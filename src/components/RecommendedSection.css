@@ -13,6 +13,7 @@ section#recommended {
 
 .recommended-grid {
   margin-top: 1.5rem;
+  padding-bottom: 3.8rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
