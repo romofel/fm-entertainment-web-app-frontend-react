@@ -7,11 +7,13 @@ import posters from '../Posters';
 
 export default function RecommendedMovie({ movie }) {
 
+  const [isBookmarked, setIsBookmarked] = React.useState(movie.isBookmarked);
+
   return (
     <div className="recommended-movie">
       <div style={{backgroundImage: `url(${posters.regular.small.get(movie.title)}`}} className="recommended-movie-poster">
-        <div className="bookmark-icon">
-          <img src={movie.isBookmarked ? iconBookmarkFull : iconBookmarkEmpty} alt="empty bookmark" />
+        <div className="bookmark-icon" onClick={() => setIsBookmarked(!isBookmarked)}>
+          <img src={isBookmarked ? iconBookmarkFull : iconBookmarkEmpty} alt="empty bookmark" />
         </div>
       </div>
       <ul className="recommended-movie-details">
