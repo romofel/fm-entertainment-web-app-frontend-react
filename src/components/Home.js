@@ -42,7 +42,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'black' }}>
+    <div style={{ backgroundColor: '#10141e' }}>
       <Nav />
       <SearchBar />
       <TrendingSection />
