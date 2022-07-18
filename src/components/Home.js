@@ -41,6 +41,7 @@ function SearchSection() {
 export default function Home() {
   const [trending, setTrending] = React.useState([]);
   const [recommended, setRecommended] = React.useState([]);
+  const [search, setSearch] = React.useState(null);
 
   React.useEffect(() => {
     setTrending(data.filter((movie) => movie.isTrending));
@@ -51,8 +52,14 @@ export default function Home() {
     <div style={{ backgroundColor: '#10141e' }}>
       <Nav active={'home'} />
       <SearchBar />
-      <TrendingSection trending={trending} />
-      <RecommendedSection recommended={recommended} />
+      {search ? (
+        <SearchSection />
+      ) : (
+        <>
+          <TrendingSection trending={trending} />
+          <RecommendedSection recommended={recommended} />
+        </>
+      )}
     </div>
   );
 }
