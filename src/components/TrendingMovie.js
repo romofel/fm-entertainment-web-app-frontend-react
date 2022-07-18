@@ -3,7 +3,7 @@ import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
 import './TrendingMovie.css';
 
-export default function TrendingMovie ({ movie }) {
+export default function TrendingMovie({ movie }) {
   return (
     <div className="trending-movie">
       <div className="bookmark-icon">
@@ -13,24 +13,24 @@ export default function TrendingMovie ({ movie }) {
       <div className="trending-movie-details-section">
         <ul className="trending-movie-details-section-top">
           <li>
-            <p>2019</p>
+            <p>{movie.year}</p>
           </li>
           <li>
             <div className="separator"></div>
           </li>
           <li>
             <img src={iconCategoryMovie} alt="movie icon" />
-            <p>Movie</p>
+            <p>{movie.category}</p>
           </li>
           <li>
             <div className="separator"></div>
           </li>
           <li>
-            <p>PG</p>
+            <p>{movie.rating}</p>
           </li>
         </ul>
 
-        <h3 className="trending-movie-title">Beyond Earth</h3>
+        <h3 className="trending-movie-title">{movie.title}</h3>
       </div>
     </div>
   );
