@@ -23,14 +23,32 @@ const posters = {
       ])
     ),
   },
-  trending: new Map(
-    data
-      .filter((movie) => movie.isTrending)
-      .map((movie) => [
-        movie.title,
-        require(`${movie.thumbnail.trending.small}`),
-      ])
-  ),
+  trending: {
+    small: new Map(
+      data
+        .filter((movie) => movie.isTrending)
+        .map((movie) => [
+          movie.title,
+          require(`${movie.thumbnail.trending.small}`),
+        ])
+    ),
+    medium: new Map(
+      data
+        .filter((movie) => movie.isTrending)
+        .map((movie) => [
+          movie.title,
+          require(`${movie.thumbnail.trending.medium}`),
+        ])
+    ),
+    large: new Map(
+      data
+        .filter((movie) => movie.isTrending)
+        .map((movie) => [
+          movie.title,
+          require(`${movie.thumbnail.trending.large}`),
+        ])
+    ),
+  },
 };
 
 export default posters;
