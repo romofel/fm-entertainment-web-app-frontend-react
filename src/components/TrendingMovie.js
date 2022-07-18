@@ -3,12 +3,18 @@ import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
 import iconBookmarkFull from '../assets/icon-bookmark-full.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
 import './TrendingMovie.css';
+import posters from '../Posters';
 
 export default function TrendingMovie({ movie }) {
   const [isBookmarked, setIsBookmarked] = React.useState(movie.isBookmarked);
 
   return (
-    <div className="trending-movie">
+    <div
+      className="trending-movie"
+      style={{
+        backgroundImage: `url(${posters.trending.small.get(movie.title)})`,
+      }}
+    >
       <div
         className="bookmark-icon"
         onClick={() => setIsBookmarked(!isBookmarked)}
