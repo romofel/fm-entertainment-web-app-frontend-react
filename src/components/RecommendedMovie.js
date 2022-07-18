@@ -1,35 +1,38 @@
 import React from 'react';
 import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
+import iconBookmarkFull from '../assets/icon-bookmark-full.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
 import './RecommendedMovie.css';
+import posters from '../Posters';
 
 export default function RecommendedMovie({ movie }) {
+
   return (
     <div className="recommended-movie">
-      <div className="recommended-movie-poster">
+      <div style={{backgroundImage: `url(${posters.get(movie.title)}`}} className="recommended-movie-poster">
         <div className="bookmark-icon">
-          <img src={iconBookmarkEmpty} alt="empty bookmark" />
+          <img src={movie.isBookmarked ? iconBookmarkFull : iconBookmarkEmpty} alt="empty bookmark" />
         </div>
       </div>
       <ul className="recommended-movie-details">
         <li>
-          <p>2019</p>
+          <p>{movie.year}</p>
         </li>
         <li>
           <div className="separator"></div>
         </li>
         <li>
           <img src={iconCategoryMovie} alt="movie" />
-          <p>Movie</p>
+          <p>{movie.category}</p>
         </li>
         <li>
           <div className="separator"></div>
         </li>
         <li>
-          <p>E</p>
+          <p>{movie.rating}</p>
         </li>
       </ul>
-      <h3 className="recommended-movie-title">The Great Lands</h3>
+      <h3 className="recommended-movie-title">{movie.title}</h3>
     </div>
   );
 }
