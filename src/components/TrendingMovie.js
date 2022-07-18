@@ -3,7 +3,7 @@ import iconBookmarkEmpty from '../assets/icon-bookmark-empty.svg';
 import iconCategoryMovie from '../assets/icon-category-movie.svg';
 import './TrendingMovie.css';
 
-export default function TrendingMovie () {
+export default function TrendingMovie ({ movie }) {
   return (
     <div className="trending-movie">
       <div className="bookmark-icon">
