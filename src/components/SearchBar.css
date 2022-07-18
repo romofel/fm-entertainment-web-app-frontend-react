@@ -16,8 +16,14 @@
   height: 3rem;
   width: 100%;
   border: none;
+  border-bottom: 1px solid #5a698f;
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-size: 20px;
   background: none;
   margin-left: 1rem;
+  color: white;
+  outline: none;
 }
 
 .search-bar input::placeholder {
