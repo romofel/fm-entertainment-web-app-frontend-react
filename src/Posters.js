@@ -1,17 +1,27 @@
 import data from './data.json';
 
+const regular = data.filter((movie) => !movie.isTrending);
+
 const posters = {
   regular: {
     small: new Map(
-      data
-        .filter((movie) => !movie.isTrending)
-        .map((movie) => [
-          movie.title,
-          require(`${movie.thumbnail.regular.small}`),
-        ])
+      regular.map((movie) => [
+        movie.title,
+        require(`${movie.thumbnail.regular.small}`),
+      ])
     ),
-    medium: {},
-    large: {},
+    medium: new Map(
+      regular.map((movie) => [
+        movie.title,
+        require(`${movie.thumbnail.regular.medium}`),
+      ])
+    ),
+    large: new Map(
+      regular.map((movie) => [
+        movie.title,
+        require(`${movie.thumbnail.regular.large}`),
+      ])
+    ),
   },
   trending: new Map(
     data
