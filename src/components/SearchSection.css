@@ -1,3 +1,21 @@
 section#search {
   color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.search-heading {
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+}
+
+.search-grid {
+  margin-top: 1.5rem;
+  padding-bottom: 3.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 1.5rem;
 }
