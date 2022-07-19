@@ -34,7 +34,7 @@ function RecommendedSection({ recommended }) {
   );
 }
 
-function SearchSection() {
+function SearchSection({ search }) {
   return <div>SearchSection</div>;
 }
 
