@@ -42,12 +42,14 @@ function SearchSection({ search, data }) {
 
   return (
     <section id="search">
-      <h2>
+      <h2 className="search-heading">
         Found {matches.length} Results for '{search}'
       </h2>
-      {matches.map((movie) => (
-        <RecommendedMovie movie={movie} />
-      ))}
+      <div className="search-grid">
+        {matches.map((movie) => (
+          <RecommendedMovie movie={movie} />
+        ))}
+      </div>
     </section>
   );
 }
