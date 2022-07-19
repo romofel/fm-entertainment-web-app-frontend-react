@@ -5,6 +5,7 @@ import TrendingMovie from './TrendingMovie';
 import RecommendedMovie from './RecommendedMovie';
 import './TrendingSection.css';
 import './RecommendedSection.css';
+import './SearchSection.css';
 import data from '../data.json';
 
 function TrendingSection({ trending }) {
@@ -40,7 +41,7 @@ function SearchSection({ search, data }) {
   );
 
   return (
-    <section id="search" style={{ color: 'white' }}>
+    <section id="search">
       <h2>
         Found {matches.length} Results for '{search}'
       </h2>
