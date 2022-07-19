@@ -12,7 +12,9 @@ export default function RecommendedMovie({ movie }) {
     <div className="recommended-movie">
       <div
         style={{
-          backgroundImage: `url(${posters.regular.small.get(movie.title)}`,
+          backgroundImage: `url(${posters[
+            `${movie.isTrending ? 'trending' : 'regular'}`
+          ].small.get(movie.title)}`,
         }}
         className="recommended-movie-poster"
       >
