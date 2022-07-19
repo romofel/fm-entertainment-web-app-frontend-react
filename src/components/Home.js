@@ -35,15 +35,19 @@ function RecommendedSection({ recommended }) {
 }
 
 function SearchSection({ search, data }) {
+  const matches = data.filter((movie) =>
+    movie.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <div style={{ color: 'white' }}>
-      <h2>Found 2 Results for '{search}'</h2>
-      {data
-        .filter((movie) => movie.title.toLowerCase().includes(search.toLowerCase()))
-        .map((movie) => (
-          <RecommendedMovie movie={movie} />
-        ))}
-    </div>
+    <section id="search" style={{ color: 'white' }}>
+      <h2>
+        Found {matches.length} Results for '{search}'
+      </h2>
+      {matches.map((movie) => (
+        <RecommendedMovie movie={movie} />
+      ))}
+    </section>
   );
 }
 
