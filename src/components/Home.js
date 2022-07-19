@@ -53,7 +53,7 @@ export default function Home() {
       <Nav active={'home'} />
       <SearchBar onSearch={setSearch} />
       {search ? (
-        <SearchSection />
+        <SearchSection search={search} />
       ) : (
         <>
           <TrendingSection trending={trending} />
