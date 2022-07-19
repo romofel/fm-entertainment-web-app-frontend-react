@@ -34,8 +34,13 @@ function RecommendedSection({ recommended }) {
   );
 }
 
-function SearchSection({ search }) {
-  return <div>SearchSection</div>;
+function SearchSection({ search, data }) {
+  return <div style={{color: 'white'}}>
+    <h2>Found 2 Results for '{search}'</h2>
+    {
+      data.filter(movie => movie.title === search).map(movie => <div>{movie.title}</div>)
+    }
+  </div>;
 }
 
 export default function Home() {
@@ -53,7 +58,7 @@ export default function Home() {
       <Nav active={'home'} />
       <SearchBar onSearch={setSearch} />
       {search ? (
-        <SearchSection search={search} />
+        <SearchSection search={search} data={data} />
       ) : (
         <>
           <TrendingSection trending={trending} />
