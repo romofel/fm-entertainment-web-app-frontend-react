@@ -5,6 +5,7 @@ import Screen from './components/Screen';
 import Home from './components/Home';
 import MoviesPage from './components/MoviesPage';
 import SeriesPage from './components/SeriesPage';
+import BookmarksPage from './components/BookmarksPage';
 import Login from './components/LoginPage';
 import Signup from './components/SignupPage';
 
@@ -16,7 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="series" element={<SeriesPage />} />
-          <Route path="bookmarks" element={<p>Bookmarks Component</p>} />
+          <Route path="bookmarks" element={<BookmarksPage />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
