@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Screen from './components/Screen';
 import Home from './components/Home';
+import MoviesPage from './components/MoviesPage';
 import Login from './components/LoginPage';
 import Signup from './components/SignupPage';
 
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Screen />}>
           <Route index element={<Home />} />
-          <Route path="movies" element={<p>Movies Component</p>} />
+          <Route path="movies" element={<MoviesPage />} />
           <Route path="series" element={<p>Tv Series Component</p>} />
           <Route path="bookmarks" element={<p>Bookmarks Component</p>} />
         </Route>
