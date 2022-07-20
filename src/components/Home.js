@@ -66,7 +66,6 @@ export default function Home() {
 
   return (
     <div style={{ backgroundColor: '#10141e' }}>
-      <Nav active={'home'} />
       <SearchBar onSearch={setSearch} />
       {search ? (
         <SearchSection search={search} data={data} />
