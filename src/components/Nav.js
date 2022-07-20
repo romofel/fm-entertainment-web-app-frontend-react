@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import logo from '../assets/logo.svg';
 import home from '../assets/icon-nav-home.svg';
 import movies from '../assets/icon-nav-movies.svg';
@@ -14,40 +16,40 @@ export default function Nav({ active }) {
 
       <ul className="mid-nav">
         <li>
-          <a href="#">
+          <NavLink to="/">
             <img
               className={active === 'home' ? 'active' : undefined}
               src={home}
               alt="home nav"
             />
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">
+          <NavLink to="movies">
             <img
               className={active === 'movies' ? 'active' : undefined}
               src={movies}
               alt="movies nav"
             />
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">
+          <NavLink to="series">
             <img
               className={active === 'series' ? 'active' : undefined}
               src={series}
               alt="series nav"
             />
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">
+          <NavLink to="bookmarks">
             <img
               className={active === 'bookmarks' ? 'active' : undefined}
               src={bookmark}
               alt="bookmarks nav"
             />
-          </a>
+          </NavLink>
         </li>
       </ul>
 

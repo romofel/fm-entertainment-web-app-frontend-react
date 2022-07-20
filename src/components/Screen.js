@@ -31,7 +31,7 @@ export default function Screen() {
     <>
       <Nav active={'home'} />
       <SearchBar onSearch={setSearch} />
-      
+
       {search ? <SearchSection search={search} data={data} /> : <Outlet />}
     </>
   );
