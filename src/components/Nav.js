@@ -17,38 +17,22 @@ export default function Nav({ active }) {
       <ul className="mid-nav">
         <li>
           <NavLink to="/">
-            <img
-              className={active === 'home' ? 'active' : undefined}
-              src={home}
-              alt="home nav"
-            />
+            <img src={home} alt="home nav" />
           </NavLink>
         </li>
         <li>
           <NavLink to="movies">
-            <img
-              className={active === 'movies' ? 'active' : undefined}
-              src={movies}
-              alt="movies nav"
-            />
+            <img src={movies} alt="movies nav" />
           </NavLink>
         </li>
         <li>
           <NavLink to="series">
-            <img
-              className={active === 'series' ? 'active' : undefined}
-              src={series}
-              alt="series nav"
-            />
+            <img src={series} alt="series nav" />
           </NavLink>
         </li>
         <li>
           <NavLink to="bookmarks">
-            <img
-              className={active === 'bookmarks' ? 'active' : undefined}
-              src={bookmark}
-              alt="bookmarks nav"
-            />
+            <img src={bookmark} alt="bookmarks nav" />
           </NavLink>
         </li>
       </ul>
