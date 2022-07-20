@@ -9,7 +9,7 @@ import bookmark from '../assets/icon-nav-bookmark.svg';
 import avatar from '../assets/image-avatar.png';
 import './Nav.css';
 
-export default function Nav({ active }) {
+export default function Nav() {
   return (
     <nav>
       <img src={logo} alt="logo" />
