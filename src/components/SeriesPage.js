@@ -1,18 +1,12 @@
 import data from '../data';
-import RecommendedMovie from './RecommendedMovie';
+import ShowsSection from './ShowsSection';
 
 export default function SeriesPage() {
   return (
-    <section id="recommended">
-      <h2 className="trending-heading">TV Series</h2>
-
-      <div className="recommended-grid">
-        {data
-          .filter((movie) => movie.category === 'TV Series')
-          .map((movie) => (
-            <RecommendedMovie key={movie.title} movie={movie} />
-          ))}
-      </div>
-    </section>
+    <ShowsSection
+      section="series"
+      heading="TV Series"
+      data={data.filter((movie) => movie.category === 'TV Series')}
+    />
   );
 }
