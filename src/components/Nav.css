@@ -34,6 +34,6 @@ ul.mid-nav li:not(:first-of-type) {
   margin-left: 1.5rem;
 }
 
-.mid-nav img.active {
+.mid-nav a.active img{
   filter: brightness(0) invert(1);
 }
