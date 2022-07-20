@@ -12,6 +12,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Screen />}>
           <Route index element={<Home />} />
+          <Route path="movies" element={<p>Movies Component</p>} />
+          <Route path="series" element={<p>Tv Series Component</p>} />
+          <Route path="bookmarks" element={<p>Bookmarks Component</p>} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
