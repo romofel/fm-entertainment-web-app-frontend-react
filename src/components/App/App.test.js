@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import App from './';
 
-it('should render default route', () => {});
+it('should display a screen for default route', () => {
+  render(<App />, {
+    wrapper: BrowserRouter,
+  });
+  const screenComponent = screen.getByTestId('screen');
+
+  expect(screenComponent).toBeInTheDocument();
+});
 
 it('should render login route', () => {
   render(
@@ -38,27 +45,33 @@ it('should render home route', () => {
 });
 
 it('should render movies route', () => {
-  render(<MemoryRouter initialEntries={["/movies"]}>
-    <App />
-  </MemoryRouter>)
-  const moviesPage = screen.queryByTestId("movies-page");
+  render(
+    <MemoryRouter initialEntries={['/movies']}>
+      <App />
+    </MemoryRouter>
+  );
+  const moviesPage = screen.queryByTestId('movies-page');
 
   expect(moviesPage).toBeInTheDocument();
 });
 
 it('should render series route', () => {
-  render(<MemoryRouter initialEntries={["/series"]}>
-    <App />
-  </MemoryRouter>);
+  render(
+    <MemoryRouter initialEntries={['/series']}>
+      <App />
+    </MemoryRouter>
+  );
   const seriesPage = screen.queryByTestId('series-page');
 
   expect(seriesPage).toBeInTheDocument();
 });
 
 it('should render bookmarks route', () => {
-  render(<MemoryRouter initialEntries={["/bookmarks"]}>
-    <App />
-  </MemoryRouter>);
+  render(
+    <MemoryRouter initialEntries={['/bookmarks']}>
+      <App />
+    </MemoryRouter>
+  );
   const bookmarkMovies = screen.queryByTestId('bookmarks-movies-page');
   const bookmarkSeries = screen.queryByTestId('bookmarks-series-page');
 
@@ -67,9 +80,11 @@ it('should render bookmarks route', () => {
 });
 
 it('should render error route when route does not match', () => {
-  render(<MemoryRouter initialEntries={["/route-does-not-exist"]}>
-    <App />
-  </MemoryRouter>);
+  render(
+    <MemoryRouter initialEntries={['/route-does-not-exist']}>
+      <App />
+    </MemoryRouter>
+  );
   const errorRoute = screen.queryByTestId('error-page');
 
   expect(errorRoute).toBeInTheDocument();
