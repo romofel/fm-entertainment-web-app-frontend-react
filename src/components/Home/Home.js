@@ -30,7 +30,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: '#10141e' }}>
+    <div data-testid="home-page" style={{ backgroundColor: '#10141e' }}>
       <>
         <TrendingSection trending={trending} />
         <ShowsSection

@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import App from './';
 
 it('should render default route', () => {});
@@ -12,7 +11,7 @@ it('should render login route', () => {
       <App />
     </MemoryRouter>
   );
-  const loginPage = screen.queryByTestId("login-page");
+  const loginPage = screen.queryByTestId('login-page');
 
   expect(loginPage).toBeInTheDocument();
 });
@@ -23,11 +22,21 @@ it('should render signup route', () => {
       <App />
     </MemoryRouter>
   );
-  const signupPage = screen.queryByTestId("signup-page");
+  const signupPage = screen.queryByTestId('signup-page');
 
   expect(signupPage).toBeInTheDocument();
 });
-it.todo('should render home route');
+
+it('should render home route', () => {
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <App />
+    </MemoryRouter>
+  );
+  const homePage = screen.queryByTestId('home-page');
+
+  expect(homePage).toBeInTheDocument();
+});
 it.todo('should render movies route');
 it.todo('should render series route');
 it.todo('should render bookmarks route');
