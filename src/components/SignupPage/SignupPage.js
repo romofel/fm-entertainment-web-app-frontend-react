@@ -1,10 +1,17 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import './SignupPage.css';
+import registerService from '../../services/registerService';
 
 export default function SignupPage() {
   const navigate = useNavigate();
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    const res = await registerService.registerUser();
+    console.log(res);
+  };
 
   return (
     <div data-testid="signup-page" className="signup-page">
@@ -36,13 +43,17 @@ export default function SignupPage() {
             placeholder="Repeat password"
           />
 
-          <button type="submit" className="signup-submit">
+          <button
+            data-testid="signup-button"
+            onClick={handleRegister}
+            type="submit"
+            className="signup-submit"
+          >
             Create an account
           </button>
 
           <p className="signup-text">
-            Already have an account?{' '}
-            {/* TODO: Turn this into a button */}
+            Already have an account? {/* TODO: Turn this into a button */}
             <a
               data-testid="login-redirect"
               href=""
