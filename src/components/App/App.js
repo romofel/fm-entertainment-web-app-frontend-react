@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
-import Screen from './components/Screen';
-import Home from './components/Home';
-import MoviesPage from './components/MoviesPage';
-import SeriesPage from './components/SeriesPage';
-import BookmarksPage from './components/BookmarksPage';
-import Login from './components/LoginPage';
-import Signup from './components/SignupPage';
+import Screen from '../Screen';
+import Home from '../Home';
+import MoviesPage from '../MoviesPage';
+import SeriesPage from '../SeriesPage';
+import BookmarksPage from '../BookmarksPage';
+import Login from '../LoginPage';
+import Signup from '../SignupPage';
 
 function App() {
   return (
