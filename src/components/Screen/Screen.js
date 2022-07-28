@@ -1,10 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import data from '../data.json';
+import data from '../../data.json';
 
-import Nav from './Nav';
-import SearchBar from './SearchBar';
-import RecommendedMovie from './RecommendedMovie';
+import Nav from '../Nav';
+import SearchBar from '../SearchBar';
+import RecommendedMovie from '../RecommendedMovie';
 
 function SearchSection({ search, data }) {
   const matches = data.filter((movie) =>

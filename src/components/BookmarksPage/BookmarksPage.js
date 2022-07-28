@@ -1,5 +1,5 @@
-import ShowsSection from './ShowsSection';
-import data from '../data';
+import ShowsSection from '../ShowsSection';
+import data from '../../data';
 
 export default function BookmarksPage() {
   const bookmarked = data.filter((show) => show.isBookmarked);

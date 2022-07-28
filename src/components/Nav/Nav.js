@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import logo from '../assets/logo.svg';
-import home from '../assets/icon-nav-home.svg';
-import movies from '../assets/icon-nav-movies.svg';
-import series from '../assets/icon-nav-tv-series.svg';
-import bookmark from '../assets/icon-nav-bookmark.svg';
-import avatar from '../assets/image-avatar.png';
+import logo from '../../assets/logo.svg';
+import home from '../../assets/icon-nav-home.svg';
+import movies from '../../assets/icon-nav-movies.svg';
+import series from '../../assets/icon-nav-tv-series.svg';
+import bookmark from '../../assets/icon-nav-bookmark.svg';
+import avatar from '../../assets/image-avatar.png';
 import './Nav.css';
 
 export default function Nav() {

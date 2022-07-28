@@ -1,5 +1,5 @@
-import data from '../data';
-import ShowsSection from './ShowsSection';
+import data from '../../data';
+import ShowsSection from '../ShowsSection';
 
 export default function MoviesPage() {
   return (

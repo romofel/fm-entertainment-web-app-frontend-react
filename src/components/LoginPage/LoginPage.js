@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginPage.css';
 
-import logo from '../assets/logo.svg';
+import logo from '../../assets/logo.svg';
 
 export default function LoginPage() {
   return (

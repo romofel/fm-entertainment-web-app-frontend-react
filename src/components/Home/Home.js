@@ -1,10 +1,10 @@
 import React from 'react';
-import TrendingMovie from './TrendingMovie';
-import './TrendingSection.css';
-import './RecommendedSection.css';
-import './SearchSection.css';
-import data from '../data.json';
-import ShowsSection from './ShowsSection';
+import TrendingMovie from '../TrendingMovie';
+import ShowsSection from '../ShowsSection';
+import '../TrendingSection/TrendingSection.css';
+import '../RecommendedSection/RecommendedSection.css';
+import '../SearchSection/SearchSection.css';
+import data from '../../data.json';
 
 function TrendingSection({ trending }) {
   return (

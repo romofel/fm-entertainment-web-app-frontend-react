@@ -1,4 +1,4 @@
-import RecommendedMovie from './RecommendedMovie';
+import RecommendedMovie from '../RecommendedMovie';
 import './ShowsSection.css';
 
 export default function ShowsSection({ section, heading, data }) {

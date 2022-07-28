@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import iconsearch from '../assets/icon-search.svg';
+import iconsearch from '../../assets/icon-search.svg';
 import './SearchBar.css';
 
 const decidePlaceholder = (path) => {
