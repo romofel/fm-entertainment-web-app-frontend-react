@@ -4,7 +4,7 @@ import './SignupPage.css';
 
 export default function SignupPage () {
   return (
-    <div className="signup-page">
+    <div data-testid="signup-page" className="signup-page">
       <img className="logo" src={logo} alt="logo" />
 
       <div className="signup-form">
