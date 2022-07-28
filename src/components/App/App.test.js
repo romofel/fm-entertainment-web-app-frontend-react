@@ -42,7 +42,7 @@ it('should render movies route', () => {
   render(<MemoryRouter initialEntries={["/movies"]}>
     <App />
   </MemoryRouter>)
-  const moviesPage = screen.queryByText("Movies");
+  const moviesPage = screen.queryByTestId("movies-page");
 
   expect(moviesPage).toBeInTheDocument();
 });
