@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
 import App from './';
 
@@ -59,11 +58,19 @@ it('should render series route', () => {
 it('should render bookmarks route', () => {
   render(<MemoryRouter initialEntries={["/bookmarks"]}>
     <App />
-  </MemoryRouter>)
+  </MemoryRouter>);
   const bookmarkMovies = screen.queryByTestId('bookmarks-movies-page');
   const bookmarkSeries = screen.queryByTestId('bookmarks-series-page');
 
   expect(bookmarkMovies).toBeInTheDocument();
   expect(bookmarkSeries).toBeInTheDocument();
 });
-it.todo('should render error route when route does not match');
+
+it('should render error route when route does not match', () => {
+  render(<MemoryRouter initialEntries={["/route-does-not-exist"]}>
+    <App />
+  </MemoryRouter>);
+  const errorRoute = screen.queryByTestId('error-page');
+
+  expect(errorRoute).toBeInTheDocument();
+});
