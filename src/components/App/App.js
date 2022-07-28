@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import Screen from '../Screen';
@@ -11,7 +11,6 @@ import Signup from '../SignupPage';
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Screen />}>
           <Route index element={<Home />} />
@@ -22,7 +21,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
       </Routes>
-    </BrowserRouter>
   );
 }
 
