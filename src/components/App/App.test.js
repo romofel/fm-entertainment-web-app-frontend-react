@@ -55,5 +55,15 @@ it('should render series route', () => {
 
   expect(seriesPage).toBeInTheDocument();
 });
-it.todo('should render bookmarks route');
+
+it('should render bookmarks route', () => {
+  render(<MemoryRouter initialEntries={["/bookmarks"]}>
+    <App />
+  </MemoryRouter>)
+  const bookmarkMovies = screen.queryByTestId('bookmarks-movies-page');
+  const bookmarkSeries = screen.queryByTestId('bookmarks-series-page');
+
+  expect(bookmarkMovies).toBeInTheDocument();
+  expect(bookmarkSeries).toBeInTheDocument();
+});
 it.todo('should render error route when route does not match');
