@@ -11,16 +11,24 @@ import Signup from '../SignupPage';
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Screen />}>
-          <Route index element={<Home />} />
-          <Route path="movies" element={<MoviesPage />} />
-          <Route path="series" element={<SeriesPage />} />
-          <Route path="bookmarks" element={<BookmarksPage />} />
-        </Route>
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Screen />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<MoviesPage />} />
+        <Route path="series" element={<SeriesPage />} />
+        <Route path="bookmarks" element={<BookmarksPage />} />
+      </Route>
+      <Route path="login" element={<Login />} />
+      <Route path="signup" element={<Signup />} />
+      <Route
+        path="*"
+        element={
+          <div data-testid="error-page">
+            <h1>Page was not found</h1>
+          </div>
+        }
+      />
+    </Routes>
   );
 }
 
