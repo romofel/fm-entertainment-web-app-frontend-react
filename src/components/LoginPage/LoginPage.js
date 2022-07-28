@@ -5,7 +5,7 @@ import logo from '../../assets/logo.svg';
 
 export default function LoginPage() {
   return (
-    <div className="login-page">
+    <div data-testid="login-page" className="login-page">
       <img className="logo" alt="logo" src={logo} />
       <div className="login-form">
         <form action="">
