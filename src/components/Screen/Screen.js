@@ -28,11 +28,11 @@ function SearchSection({ search, data }) {
 export default function Screen() {
   const [search, setSearch] = React.useState(null);
   return (
-    <>
+    <div data-testid="screen">
       <Nav active={'home'} />
       <SearchBar onSearch={setSearch} />
 
       {search ? <SearchSection search={search} data={data} /> : <Outlet />}
-    </>
+    </div>
   );
 }
