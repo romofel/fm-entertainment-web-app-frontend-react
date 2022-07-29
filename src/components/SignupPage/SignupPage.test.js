@@ -39,10 +39,77 @@ describe('when register button should be disabled', () => {
     expect(signupButton).toBeDisabled();
   });
 
-  it.todo('should be disabled when email missing');
-  it.todo('should be disabled when password missing');
-  it.todo('should be disabled when repassword is missing');
-  it.todo('should be disabled when passwords do not match');
+  it('should be disabled when email missing', () => {
+    render(<SignupPage />, { wrapper: BrowserRouter });
+    const signupButton = screen.queryByTestId('signup-button');
+    const passwordInput = screen.queryByTestId('signup-password-input');
+    const repasswordInput = screen.queryByTestId('signup-repassword-input');
+
+    expect(passwordInput).toBeInTheDocument();
+    expect(repasswordInput).toBeInTheDocument();
+    expect(signupButton).toBeInTheDocument();
+
+    userEvent.type(passwordInput, 'password');
+    userEvent.type(repasswordInput, 'password');
+
+    expect(signupButton).toBeDisabled();
+  });
+
+  it('should be disabled when password missing', () => {
+    render(<SignupPage />, { wrapper: BrowserRouter });
+    const signupButton = screen.queryByTestId('signup-button');
+    const emailInput = screen.queryByTestId('signup-email-input');
+    const repasswordInput = screen.queryByTestId('signup-repassword-input');
+
+    expect(signupButton).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
+    expect(repasswordInput).toBeInTheDocument();
+
+    userEvent.type(emailInput, 'password');
+    userEvent.type(repasswordInput, 'password');
+
+    expect(signupButton).toBeDisabled();
+  });
+
+  it('should be disabled when repassword is missing', () => {
+    render(<SignupPage />, { wrapper: BrowserRouter });
+    const signupButton = screen.queryByTestId('signup-button');
+    const emailInput = screen.queryByTestId('signup-email-input');
+    const passwordInput = screen.queryByTestId('signup-password-input');
+
+    expect(signupButton).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
+
+    userEvent.type(emailInput, 'password');
+    userEvent.type(passwordInput, 'password');
+
+    expect(signupButton).toBeDisabled();
+  });
+
+  it('should be disabled when passwords do not match', () => {
+    const userDetails = {
+      email: 'user@email.com',
+      password: 'password',
+      repassword: 'repassword',
+    };
+    render(<SignupPage />, { wrapper: BrowserRouter });
+    const signupButton = screen.queryByTestId('signup-button');
+    const emailInput = screen.queryByTestId('signup-email-input');
+    const passwordInput = screen.queryByTestId('signup-password-input');
+    const repasswordInput = screen.queryByTestId('signup-repassword-input');
+
+    expect(signupButton).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
+    expect(repasswordInput).toBeInTheDocument();
+
+    userEvent.type(emailInput, userDetails.email);
+    userEvent.type(passwordInput, userDetails.password);
+    userEvent.type(repasswordInput, userDetails.repassword);
+
+    expect(signupButton).toBeDisabled();
+  });
 });
 
 it('should call signup api', () => {
