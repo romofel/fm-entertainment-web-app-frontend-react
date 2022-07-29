@@ -113,14 +113,31 @@ describe('when register button should be disabled', () => {
 });
 
 it('should call signup api', () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+    repassword: 'password',
+  };
   jest.spyOn(registerService, 'registerUser').mockResolvedValue({
     registration: 'SUCCESS',
     message: '',
   });
   render(<SignupPage />, { wrapper: BrowserRouter });
   const signupButton = screen.queryByTestId('signup-button');
+  const emailInput = screen.queryByTestId('signup-email-input');
+  const passwordInput = screen.queryByTestId('signup-password-input');
+  const repasswordInput = screen.queryByTestId('signup-repassword-input');
 
   expect(signupButton).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+  expect(repasswordInput).toBeInTheDocument();
+
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+  userEvent.type(repasswordInput, userDetails.repassword);
+
+  expect(signupButton).toBeEnabled();
 
   userEvent.click(signupButton);
 
