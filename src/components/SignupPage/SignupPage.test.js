@@ -3,6 +3,7 @@ import { BrowserRouter, MemoryRouter, Routes, Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import SignupPage from './';
 import LoginPage from '../LoginPage';
+import Home from '../Home';
 import registerService from '../../services/registerService';
 
 it('should render component without error', () => {
@@ -227,5 +228,24 @@ it('should call api with user details', () => {
   expect(registerService.registerUser).toBeCalledWith(userDetails);
 });
 
-it.todo('should handle a successful signup');
+it('should handle a successful signup', async () => {
+  jest.spyOn(registerService, 'registerUser').mockResolvedValue({
+    registration: 'SUCCESS',
+    message: '',
+  });
+  render(
+    <MemoryRouter initialEntries={['/signup']}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="signup" element={<SignupPage />} />
+      </Routes>
+    </MemoryRouter>
+  );
+  const signupPage = screen.queryByTestId('signup-page');
+
+  expect(signupPage).toBeInTheDocument();
+
+  const homePage = await screen.findByTestId('home-page');
+  expect(homePage).toBeInTheDocument();
+});
 it.todo('should handle a unsucsseful signup');
