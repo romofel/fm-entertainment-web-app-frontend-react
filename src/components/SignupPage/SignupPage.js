@@ -69,6 +69,7 @@ export default function SignupPage() {
             onClick={handleRegister}
             type="submit"
             className="signup-submit"
+            disabled
           >
             Create an account
           </button>
