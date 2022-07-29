@@ -92,6 +92,8 @@ it('should accept password confirmation input', () => {
 
 it.todo('should perform check that both passwords match');
 
+it.todo('should enable register button if all fields are filled out and both passwords match');
+
 
 it.todo('should handle a successful signup');
 it.todo('should handle a unsucsseful signup');
