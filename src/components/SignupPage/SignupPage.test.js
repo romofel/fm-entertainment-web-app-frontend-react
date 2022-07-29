@@ -90,7 +90,6 @@ it('should accept password confirmation input', () => {
   expect(passwordInput).toHaveValue('password');
 });
 
-it.todo('should perform check that both passwords match');
 
 it('should enable register button if all fields are filled out and both passwords match', () => {
   const userDetails = {
