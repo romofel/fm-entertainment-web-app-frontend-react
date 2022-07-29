@@ -12,8 +12,11 @@ export default function SignupPage() {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    const res = await registerService.registerUser();
-    console.log(res);
+    const res = await registerService.registerUser({
+      email,
+      password
+    });
+    
   };
 
   return (
