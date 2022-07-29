@@ -30,14 +30,16 @@ it('should be able to redirect to login component', async () => {
   expect(loginPage).toBeInTheDocument();
 });
 
+it.todo('should disable register button by default');
+
 it('should call signup api', () => {
   jest.spyOn(registerService, 'registerUser').mockResolvedValue({
-    registration: "SUCCESS",
-    message: "",
+    registration: 'SUCCESS',
+    message: '',
   });
   render(<SignupPage />, { wrapper: BrowserRouter });
   const signupButton = screen.queryByTestId('signup-button');
-  
+
   expect(signupButton).toBeInTheDocument();
 
   userEvent.click(signupButton);
@@ -46,7 +48,7 @@ it('should call signup api', () => {
 });
 
 it('should accept email input', () => {
-  render(<SignupPage />, { wrapper: BrowserRouter })
+  render(<SignupPage />, { wrapper: BrowserRouter });
   const emailInput = screen.queryByTestId('signup-email-input');
 
   expect(emailInput).toBeInTheDocument();
@@ -56,7 +58,7 @@ it('should accept email input', () => {
 });
 
 it('should accept password input', () => {
-  render(<SignupPage />, { wrapper: BrowserRouter })
+  render(<SignupPage />, { wrapper: BrowserRouter });
   const passwordInput = screen.queryByTestId('signup-password-input');
 
   expect(passwordInput).toBeInTheDocument();
@@ -66,7 +68,7 @@ it('should accept password input', () => {
 });
 
 it('should accept password confirmation input', () => {
-  render(<SignupPage />, { wrapper: BrowserRouter })
+  render(<SignupPage />, { wrapper: BrowserRouter });
   const passwordInput = screen.queryByTestId('signup-repassword-input');
 
   expect(passwordInput).toBeInTheDocument();
