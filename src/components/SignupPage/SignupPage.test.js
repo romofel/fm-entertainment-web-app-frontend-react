@@ -30,7 +30,20 @@ it('should be able to redirect to login component', async () => {
   expect(loginPage).toBeInTheDocument();
 });
 
-it.todo('should disable register button by default');
+describe('when register button should be disabled', () => {
+  it('should disable register button by default', () => {
+    render(<SignupPage />, { wrapper: BrowserRouter });
+    const signupButton = screen.queryByTestId('signup-button');
+
+    expect(signupButton).toBeInTheDocument();
+    expect(signupButton).toBeDisabled();
+  });
+
+  it.todo('should be disabled when email missing');
+  it.todo('should be disabled when password missing');
+  it.todo('should be disabled when repassword is missing');
+  it.todo('should be disabled when passwords do not match');
+});
 
 it('should call signup api', () => {
   jest.spyOn(registerService, 'registerUser').mockResolvedValue({
