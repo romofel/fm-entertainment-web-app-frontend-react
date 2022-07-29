@@ -75,5 +75,7 @@ it('should accept password confirmation input', () => {
   expect(passwordInput).toHaveValue('password');
 });
 
+it.todo('should check that both passwords match');
+
 it.todo('should handle a successful signup');
 it.todo('should handle a unsucsseful signup');
