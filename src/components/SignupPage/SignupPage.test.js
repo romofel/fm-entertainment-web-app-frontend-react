@@ -174,7 +174,6 @@ it('should accept password confirmation input', () => {
   expect(passwordInput).toHaveValue('password');
 });
 
-
 it('should enable register button if all fields are filled out and both passwords match', () => {
   const userDetails = {
     email: 'user@email.com',
@@ -198,6 +197,35 @@ it('should enable register button if all fields are filled out and both password
   expect(signupButton).toBeEnabled();
 });
 
+it('should call api with user details', () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+  };
+
+  jest.spyOn(registerService, 'registerUser').mockResolvedValue({
+    registration: 'SUCCESS',
+    message: '',
+  });
+  render(<SignupPage />, { wrapper: BrowserRouter });
+  const signupButton = screen.queryByTestId('signup-button');
+  const emailInput = screen.queryByTestId('signup-email-input');
+  const passwordInput = screen.queryByTestId('signup-password-input');
+  const repasswordInput = screen.queryByTestId('signup-repassword-input');
+
+  expect(signupButton).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+  expect(repasswordInput).toBeInTheDocument();
+
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+  userEvent.type(repasswordInput, userDetails.password);
+
+  userEvent.click(signupButton);
+
+  expect(registerService.registerUser).toBeCalledWith(userDetails);
+});
 
 it.todo('should handle a successful signup');
 it.todo('should handle a unsucsseful signup');
