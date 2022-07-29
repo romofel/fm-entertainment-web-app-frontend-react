@@ -45,5 +45,35 @@ it('should call signup api', () => {
   expect(registerService.registerUser).toHaveBeenCalledTimes(1);
 });
 
+it('should accept email input', () => {
+  render(<SignupPage />, { wrapper: BrowserRouter })
+  const emailInput = screen.queryByTestId('signup-email-input');
+
+  expect(emailInput).toBeInTheDocument();
+
+  userEvent.type(emailInput, 'user@email.com');
+  expect(emailInput).toHaveValue('user@email.com');
+});
+
+it('should accept password input', () => {
+  render(<SignupPage />, { wrapper: BrowserRouter })
+  const passwordInput = screen.queryByTestId('signup-password-input');
+
+  expect(passwordInput).toBeInTheDocument();
+
+  userEvent.type(passwordInput, 'password');
+  expect(passwordInput).toHaveValue('password');
+});
+
+it('should accept password confirmation input', () => {
+  render(<SignupPage />, { wrapper: BrowserRouter })
+  const passwordInput = screen.queryByTestId('signup-repassword-input');
+
+  expect(passwordInput).toBeInTheDocument();
+
+  userEvent.type(passwordInput, 'password');
+  expect(passwordInput).toHaveValue('password');
+});
+
 it.todo('should handle a successful signup');
 it.todo('should handle a unsucsseful signup');
