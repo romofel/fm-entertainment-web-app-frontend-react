@@ -38,7 +38,28 @@ it('should disable login button by default', () => {
   expect(loginButton).toBeInTheDocument();
   expect(loginButton).toBeDisabled();
 });
-it.todo('should enable login button when email and password have been entered');
+
+it('should enable login button when email and password have been entered', () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+  };
+  render(<LoginPage />);
+
+  const loginButton = screen.queryByTestId('login-button');
+  const emailInput = screen.queryByTestId('login-email-input');
+  const passwordInput = screen.queryByTestId('login-password-input');
+
+  expect(loginButton).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+  expect(loginButton).toBeDisabled();
+
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+
+  expect(loginButton).toBeEnabled();
+});
 it.todo('should redirect when Sign up is clicked');
 it.todo('should redirect on successful login');
 it.todo('should not redirect on failed login');
