@@ -1,9 +1,11 @@
-import React from 'react';
+import { useState } from 'react';
 import './LoginPage.css';
 
 import logo from '../../assets/logo.svg';
 
 export default function LoginPage() {
+  const [email, setEmail] = useState('');
+
   return (
     <div data-testid="login-page" className="login-page">
       <img className="logo" alt="logo" src={logo} />
@@ -11,12 +13,32 @@ export default function LoginPage() {
         <form action="">
           <h1 className="login-header">Login</h1>
 
-          <input className="login-email" type="email" name="email" id="email" placeholder="Email address" />
-          <input className="login-password" type="password" name="password" id="password" placeholder="Password" />
+          <input
+            data-testid="login-email-input"
+            className="login-email"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email address"
+            onChange={(event) => setEmail(event.target.value)}
+            value={email}
+          />
+          <input
+            className="login-password"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            value=""
+          />
 
-          <button type="submit" className="login-submit">Login to your account</button>
+          <button type="submit" className="login-submit">
+            Login to your account
+          </button>
 
-          <p className="login-text">Don't have an account? <a href="#">Sign Up</a></p>
+          <p className="login-text">
+            Don't have an account? <a href="#">Sign Up</a>
+          </p>
         </form>
       </div>
     </div>
