@@ -35,7 +35,12 @@ export default function LoginPage() {
             value={password}
           />
 
-          <button type="submit" className="login-submit">
+          <button
+            data-testid="login-button"
+            type="submit"
+            className="login-submit"
+            disabled
+          >
             Login to your account
           </button>
 
