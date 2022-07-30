@@ -19,7 +19,17 @@ it('should accept email input', () => {
   userEvent.type(emailInput, userEmail);
   expect(emailInput).toHaveValue(userEmail);
 });
-it.todo('should accept password input');
+
+it('should accept password input', () => {
+  const password = 'password';
+  render(<LoginPage />);
+
+  const passwordInput = screen.queryByTestId('login-password-input');
+  expect(passwordInput).toBeInTheDocument();
+
+  userEvent.type(passwordInput, password);
+  expect(passwordInput).toHaveValue(password);
+});
 it.todo('should disable login button by default');
 it.todo('should enable login button when email and password have been entered');
 it.todo('should redirect when Sign up is clicked');
