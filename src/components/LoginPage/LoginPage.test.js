@@ -123,5 +123,7 @@ it('should redirect on successful login', async () => {
 
   const homePage = await screen.findByTestId('home-page');
   expect(homePage).toBeInTheDocument();
+  expect(loginPage).not.toBeInTheDocument();
+});
 });
 it.todo('should not redirect on failed login');
