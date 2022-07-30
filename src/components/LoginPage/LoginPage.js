@@ -39,7 +39,7 @@ export default function LoginPage() {
             data-testid="login-button"
             type="submit"
             className="login-submit"
-            disabled
+            disabled={!(email && password)}
           >
             Login to your account
           </button>
