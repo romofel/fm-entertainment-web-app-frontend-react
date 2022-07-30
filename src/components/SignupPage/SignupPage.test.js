@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter, Routes, Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import SignupPage from './';
@@ -27,8 +27,10 @@ it('should be able to redirect to login component', async () => {
   expect(loginButton).toBeInTheDocument();
   userEvent.click(loginButton);
 
-  const loginPage = await screen.findByTestId('login-page');
-  expect(loginPage).toBeInTheDocument();
+  await act(async () => {
+    const loginPage = await screen.findByTestId('login-page');
+    expect(loginPage).toBeInTheDocument();
+  });
 });
 
 describe('when register button should be disabled', () => {
@@ -113,7 +115,7 @@ describe('when register button should be disabled', () => {
   });
 });
 
-it('should call signup api', () => {
+it('should call signup api', async () => {
   const userDetails = {
     email: 'user@email.com',
     password: 'password',
@@ -141,8 +143,9 @@ it('should call signup api', () => {
   expect(signupButton).toBeEnabled();
 
   userEvent.click(signupButton);
-
-  expect(registerService.registerUser).toHaveBeenCalledTimes(1);
+  await act(() => {
+    expect(registerService.registerUser).toHaveBeenCalledTimes(1);
+  });
 });
 
 it('should accept email input', () => {
@@ -198,7 +201,7 @@ it('should enable register button if all fields are filled out and both password
   expect(signupButton).toBeEnabled();
 });
 
-it('should call api with user details', () => {
+it('should call api with user details', async () => {
   const userDetails = {
     email: 'user@email.com',
     password: 'password',
@@ -225,10 +228,16 @@ it('should call api with user details', () => {
 
   userEvent.click(signupButton);
 
-  expect(registerService.registerUser).toBeCalledWith(userDetails);
+  await act(() => {
+    expect(registerService.registerUser).toBeCalledWith(userDetails);
+  });
 });
 
 it('should handle a successful signup', async () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+  };
   jest.spyOn(registerService, 'registerUser').mockResolvedValue({
     registration: 'SUCCESS',
     message: '',
@@ -237,15 +246,31 @@ it('should handle a successful signup', async () => {
     <MemoryRouter initialEntries={['/signup']}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="signup" element={<SignupPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </MemoryRouter>
   );
   const signupPage = screen.queryByTestId('signup-page');
+  const signupButton = screen.queryByTestId('signup-button');
+  const emailInput = screen.queryByTestId('signup-email-input');
+  const passwordInput = screen.queryByTestId('signup-password-input');
+  const repasswordInput = screen.queryByTestId('signup-repassword-input');
 
   expect(signupPage).toBeInTheDocument();
+  expect(signupButton).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+  expect(repasswordInput).toBeInTheDocument();
 
-  const homePage = await screen.findByTestId('home-page');
-  expect(homePage).toBeInTheDocument();
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+  userEvent.type(repasswordInput, userDetails.password);
+
+  userEvent.click(signupButton);
+
+  await act(async () => {
+    const homePage = await screen.findByTestId('home-page');
+    expect(homePage).toBeInTheDocument();
+  });
 });
 it.todo('should handle a unsucsseful signup');
