@@ -5,6 +5,7 @@ import logo from '../../assets/logo.svg';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div data-testid="login-page" className="login-page">
@@ -24,12 +25,14 @@ export default function LoginPage() {
             value={email}
           />
           <input
+            data-testid="login-password-input"
             className="login-password"
             type="password"
             name="password"
             id="password"
             placeholder="Password"
-            value=""
+            onChange={(event) => setPassword(event.target.value)}
+            value={password}
           />
 
           <button type="submit" className="login-submit">
