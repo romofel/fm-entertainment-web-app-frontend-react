@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import LoginPage from './';
+import SignupPage from '../SignupPage';
 
 it('should render component without error', () => {
   render(<LoginPage />);
@@ -60,6 +62,25 @@ it('should enable login button when email and password have been entered', () =>
 
   expect(loginButton).toBeEnabled();
 });
-it.todo('should redirect when Sign up is clicked');
+
+it('should redirect when Sign up is clicked', () => {
+  render(
+    <MemoryRouter initialEntries={["/login"]}>
+      <Routes>
+        <Route path="login" element={<LoginPage />} />
+        <Route path="signup" element={<SignupPage />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const loginPage = screen.getByTestId('login-page');
+  expect(loginPage).toBeInTheDocument();
+
+  const signupButton = screen.getByTestId('signup-redirect');
+  userEvent.click(signupButton);
+
+  const signupPage = screen.getByTestId('signup-page');
+  expect(signupPage).toBeInTheDocument();
+});
 it.todo('should redirect on successful login');
 it.todo('should not redirect on failed login');
