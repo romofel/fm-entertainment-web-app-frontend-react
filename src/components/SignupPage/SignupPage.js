@@ -16,7 +16,6 @@ export default function SignupPage() {
       email,
       password
     });
-    
   };
 
   return (
@@ -69,7 +68,10 @@ export default function SignupPage() {
 
           <button
             data-testid="signup-button"
-            onClick={handleRegister}
+            onClick={(event) => {
+              handleRegister(event);
+              navigate('/');
+            }}
             type="submit"
             className="signup-submit"
             disabled={!(email && password && repassword && password === repassword)}
