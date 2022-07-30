@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
+import loginService from '../../services/loginService';
 
 import logo from '../../assets/logo.svg';
 
@@ -8,6 +9,13 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  const handleLoginClick = async (event) => {
+    const res = await loginService.loginUser();
+    console.log(res);
+    if (res.login === 'SUCCESS') navigate('/');
+    else console.log('failed to login');
+  };
 
   return (
     <div data-testid="login-page" className="login-page">
@@ -41,6 +49,7 @@ export default function LoginPage() {
             data-testid="login-button"
             type="submit"
             className="login-submit"
+            onClick={(event) => handleLoginClick(event)}
             disabled={!(email && password)}
           >
             Login to your account
@@ -48,7 +57,11 @@ export default function LoginPage() {
 
           <p className="login-text">
             Don't have an account?{' '}
-            <a data-testid="signup-redirect" href="" onClick={() => navigate('/signup')}>
+            <a
+              data-testid="signup-redirect"
+              href=""
+              onClick={() => navigate('/signup')}
+            >
               Sign Up
             </a>
           </p>
