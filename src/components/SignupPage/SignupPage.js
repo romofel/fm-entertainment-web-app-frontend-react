@@ -14,8 +14,13 @@ export default function SignupPage() {
     event.preventDefault();
     const res = await registerService.registerUser({
       email,
-      password
+      password,
     });
+    if (res.registration === 'SUCCESS') {
+      navigate('/', { replace: true });
+    } else {
+      console.log('It failed');
+    }
   };
 
   return (
@@ -68,13 +73,14 @@ export default function SignupPage() {
 
           <button
             data-testid="signup-button"
-            onClick={(event) => {
-              handleRegister(event);
-              navigate('/');
+            onClick={async (event) => {
+              await handleRegister(event);
             }}
             type="submit"
             className="signup-submit"
-            disabled={!(email && password && repassword && password === repassword)}
+            disabled={
+              !(email && password && repassword && password === repassword)
+            }
           >
             Create an account
           </button>
