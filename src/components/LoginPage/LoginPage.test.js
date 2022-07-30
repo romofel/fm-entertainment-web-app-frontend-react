@@ -1,4 +1,12 @@
-it.todo('should render component without error');
+import { render, screen } from '@testing-library/react';
+import LoginPage from './';
+
+it('should render component without error', () => {
+  render(<LoginPage />);
+
+  const loginPage = screen.queryByTestId('login-page');
+  expect(loginPage).toBeInTheDocument();
+});
 it.todo('should accept email input');
 it.todo('should accept password input');
 it.todo('should disable login button by default');
