@@ -125,5 +125,43 @@ it('should redirect on successful login', async () => {
   expect(homePage).toBeInTheDocument();
   expect(loginPage).not.toBeInTheDocument();
 });
+
+it('should not redirect on failed login', async () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+  };
+  jest.spyOn(loginService, 'loginUser').mockImplementation(() => {
+    return Promise.resolve({
+      login: 'FAIL',
+    });
+  });
+  render(
+    <MemoryRouter initialEntries={['/login']}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="signup" element={<SignupPage />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const loginPage = screen.getByTestId('login-page');
+  expect(loginPage).toBeInTheDocument();
+
+  const emailInput = screen.queryByTestId('login-email-input');
+  expect(emailInput).toBeInTheDocument();
+
+  const passwordInput = screen.queryByTestId('login-password-input');
+  expect(passwordInput).toBeInTheDocument();
+
+  const loginButton = screen.getByTestId('login-button');
+  expect(loginButton).toBeInTheDocument();
+
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+  userEvent.click(loginButton);
+
+  expect(loginPage).toBeInTheDocument();
+
 });
-it.todo('should not redirect on failed login');
