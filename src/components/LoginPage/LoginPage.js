@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 import logo from '../../assets/logo.svg';
@@ -6,6 +7,7 @@ import logo from '../../assets/logo.svg';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   return (
     <div data-testid="login-page" className="login-page">
@@ -45,7 +47,10 @@ export default function LoginPage() {
           </button>
 
           <p className="login-text">
-            Don't have an account? <a href="#">Sign Up</a>
+            Don't have an account?{' '}
+            <a data-testid="signup-redirect" href="" onClick={() => navigate('/signup')}>
+              Sign Up
+            </a>
           </p>
         </form>
       </div>
