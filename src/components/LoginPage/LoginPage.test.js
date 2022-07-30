@@ -1,11 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Routes, Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
+import loginService from '../../services/loginService';
 import LoginPage from './';
 import SignupPage from '../SignupPage';
+import Home from '../Home';
 
 it('should render component without error', () => {
-  render(<LoginPage />);
+  render(<LoginPage />, { wrapper: BrowserRouter });
 
   const loginPage = screen.queryByTestId('login-page');
   expect(loginPage).toBeInTheDocument();
@@ -13,7 +15,7 @@ it('should render component without error', () => {
 
 it('should accept email input', () => {
   const userEmail = 'user@email.com';
-  render(<LoginPage />);
+  render(<LoginPage />, { wrapper: BrowserRouter });
 
   const emailInput = screen.queryByTestId('login-email-input');
   expect(emailInput).toBeInTheDocument();
@@ -24,7 +26,7 @@ it('should accept email input', () => {
 
 it('should accept password input', () => {
   const password = 'password';
-  render(<LoginPage />);
+  render(<LoginPage />, { wrapper: BrowserRouter });
 
   const passwordInput = screen.queryByTestId('login-password-input');
   expect(passwordInput).toBeInTheDocument();
@@ -34,7 +36,7 @@ it('should accept password input', () => {
 });
 
 it('should disable login button by default', () => {
-  render(<LoginPage />);
+  render(<LoginPage />, { wrapper: BrowserRouter });
 
   const loginButton = screen.queryByTestId('login-button');
   expect(loginButton).toBeInTheDocument();
@@ -46,7 +48,7 @@ it('should enable login button when email and password have been entered', () =>
     email: 'user@email.com',
     password: 'password',
   };
-  render(<LoginPage />);
+  render(<LoginPage />, { wrapper: BrowserRouter });
 
   const loginButton = screen.queryByTestId('login-button');
   const emailInput = screen.queryByTestId('login-email-input');
@@ -65,7 +67,7 @@ it('should enable login button when email and password have been entered', () =>
 
 it('should redirect when Sign up is clicked', () => {
   render(
-    <MemoryRouter initialEntries={["/login"]}>
+    <MemoryRouter initialEntries={['/login']}>
       <Routes>
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
@@ -82,5 +84,44 @@ it('should redirect when Sign up is clicked', () => {
   const signupPage = screen.getByTestId('signup-page');
   expect(signupPage).toBeInTheDocument();
 });
-it.todo('should redirect on successful login');
+
+it('should redirect on successful login', async () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+  };
+  jest.spyOn(loginService, 'loginUser').mockImplementation(() => {
+    return Promise.resolve({
+      login: 'SUCCESS',
+    });
+  });
+  render(
+    <MemoryRouter initialEntries={['/login']}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="signup" element={<SignupPage />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const loginPage = screen.getByTestId('login-page');
+  expect(loginPage).toBeInTheDocument();
+
+  const emailInput = screen.queryByTestId('login-email-input');
+  expect(emailInput).toBeInTheDocument();
+
+  const passwordInput = screen.queryByTestId('login-password-input');
+  expect(passwordInput).toBeInTheDocument();
+
+  const loginButton = screen.getByTestId('login-button');
+  expect(loginButton).toBeInTheDocument();
+
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+  userEvent.click(loginButton);
+
+  const homePage = await screen.findByTestId('home-page');
+  expect(homePage).toBeInTheDocument();
+});
 it.todo('should not redirect on failed login');
