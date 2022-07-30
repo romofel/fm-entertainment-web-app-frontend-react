@@ -238,10 +238,12 @@ it('should handle a successful signup', async () => {
     email: 'user@email.com',
     password: 'password',
   };
-  jest.spyOn(registerService, 'registerUser').mockResolvedValue({
-    registration: 'SUCCESS',
-    message: '',
-  });
+  jest.spyOn(registerService, 'registerUser').mockImplementation(() =>
+    Promise.resolve({
+      registration: 'SUCCESS',
+      message: '',
+    })
+  );
   render(
     <MemoryRouter initialEntries={['/signup']}>
       <Routes>
@@ -268,9 +270,40 @@ it('should handle a successful signup', async () => {
 
   userEvent.click(signupButton);
 
-  await act(async () => {
-    const homePage = await screen.findByTestId('home-page');
-    expect(homePage).toBeInTheDocument();
-  });
+  const homePage = await screen.findByTestId('home-page');
+  expect(homePage).toBeInTheDocument();
+  // act(async () => {});
 });
-it.todo('should handle a unsucsseful signup');
+
+it('should handle a unsuccessful signup', () => {
+  const userDetails = {
+    email: 'user@email.com',
+    password: 'password',
+  };
+  jest.spyOn(registerService, 'registerUser').mockImplementation(() =>
+    Promise.resolve({
+      registration: 'FAIL',
+      message: '',
+    })
+  );
+  render(<SignupPage />, { wrapper: BrowserRouter });
+  const signupPage = screen.queryByTestId('signup-page');
+  const signupButton = screen.queryByTestId('signup-button');
+  const emailInput = screen.queryByTestId('signup-email-input');
+  const passwordInput = screen.queryByTestId('signup-password-input');
+  const repasswordInput = screen.queryByTestId('signup-repassword-input');
+
+  expect(signupPage).toBeInTheDocument();
+  expect(signupButton).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+  expect(repasswordInput).toBeInTheDocument();
+
+  userEvent.type(emailInput, userDetails.email);
+  userEvent.type(passwordInput, userDetails.password);
+  userEvent.type(repasswordInput, userDetails.password);
+
+  userEvent.click(signupButton);
+
+  expect(signupPage).toBeInTheDocument();
+});
