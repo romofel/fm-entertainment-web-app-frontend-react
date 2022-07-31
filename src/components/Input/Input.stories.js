@@ -5,4 +5,4 @@ export default {
   component: Input,
 };
 
-export const Empty = () => <Input />;
+export const Empty = () => <Input placeholder="Email address" />;
