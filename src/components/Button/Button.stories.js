@@ -5,9 +5,11 @@ export default {
   component: Button,
 };
 
-export const Idle = () => <Button>Idle</Button>;
+export const Idle = () => <Button text="Idle" />;
 
-export const Hover = () => <Button>Hover</Button>;
+export const Hover = () => <Button text="Hover" />;
 Hover.parameters = {
   pseudo: { hover: true },
 };
+
+export const Disabled = () => <Button isDisabled text="Disabled" />;
