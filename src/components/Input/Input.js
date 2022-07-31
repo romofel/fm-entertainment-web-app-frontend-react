@@ -13,6 +13,9 @@ export default function Input({ placeholder }) {
         font-weight: 300;
         font-size: 15px;
         padding: 1rem;
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+        }
       `}
     />
   );
