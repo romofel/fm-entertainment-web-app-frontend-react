@@ -1,3 +1,19 @@
-export default function Input() {
-  return <div>Input Component</div>;
+/** @jsxImportSource @emotion/react */
+
+import { css } from '@emotion/react';
+
+export default function Input({ placeholder }) {
+  return (
+    <input
+      placeholder={placeholder}
+      css={css`
+        background-color: #161d2f;
+        border: none;
+        font-family: 'Outfit';
+        font-weight: 300;
+        font-size: 15px;
+        padding: 1rem;
+      `}
+    />
+  );
 }
