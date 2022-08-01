@@ -19,6 +19,7 @@ export default function Input({ placeholder }) {
         font-weight: 300;
         font-size: 15px;
         padding: 1rem;
+        caret-color: #fc4747;
         &::placeholder {
           color: rgba(255, 255, 255, 0.5);
         }
