@@ -49,6 +49,7 @@ export default function InputField({
   placeholder,
   type = 'text',
   validate = (_) => true,
+  errorText = 'Error happened',
 }) {
   const [text, setText] = useState('');
 
@@ -64,7 +65,7 @@ export default function InputField({
       />
       {validate(text) ? undefined : (
         <p data-testid="error-field" css={errorStyles}>
-          Error
+          {errorText}
         </p>
       )}
     </div>
