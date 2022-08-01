@@ -36,6 +36,13 @@ const errorStyles = css(css`
   top: 0;
   right: 0;
   color: ${colors.red.hex};
+  font-weight: 300;
+  font-size: 13px;
+  height: 100%;
+  margin: 0;
+  margin-right: 1rem;
+  padding: 1rem 0;
+  box-sizing: border-box;
 `);
 
 export default function InputField({
