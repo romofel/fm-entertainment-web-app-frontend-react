@@ -3,6 +3,8 @@
 import { css } from '@emotion/react';
 import { useState } from 'react';
 
+import { colors } from '../../styleVariables';
+
 const containerStyles = css(css`
   display: inline-block;
   position: relative;
@@ -33,7 +35,7 @@ const errorStyles = css(css`
   position: absolute;
   top: 0;
   right: 0;
-  color: white;
+  color: ${colors.red.hex};
 `);
 
 export default function InputField({
