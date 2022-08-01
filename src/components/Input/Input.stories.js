@@ -5,4 +5,6 @@ export default {
   component: Input,
 };
 
-export const Email = () => <Input placeholder="Email" />;
+export const Email = () => <Input placeholder="Email" type="email"/>;
+
+export const Password = () => <Input placeholder="Password" type="password" />;
