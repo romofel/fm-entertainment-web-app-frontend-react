@@ -4,15 +4,17 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 
 const containerStyles = css(css`
-  display: flex;
+  display: inline-block;
+  position: relative;
+  background-color: #161d2f;
+  font-family: 'Outfit';
 `);
 
 const inputStyles = css(css`
-  background-color: #161d2f;
+  background-color: transparent;
   color: rgb(255, 255, 255);
   border: none;
   border-bottom: 1px solid #5a698f;
-  font-family: 'Outfit';
   font-weight: 300;
   font-size: 15px;
   padding: 1rem;
