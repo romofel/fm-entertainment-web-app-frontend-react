@@ -30,7 +30,7 @@ it('should hide error by default', () => {
   expect(errorField).not.toBeInTheDocument();
 });
 
-it('should display error when one is present', () => {
+it('should display error when validation fails', () => {
   const validateFunction = (text) => false;
   render(<InputField validate={validateFunction} />);
   const inputField = screen.queryByTestId('input-field');
