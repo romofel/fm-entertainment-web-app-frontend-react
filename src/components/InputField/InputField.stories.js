@@ -28,6 +28,6 @@ export const Error = () => (
     placeholder="Error"
     type="text"
     validate={(text) => false}
-    errorText="Can't be empty"
+    errorText="Triggered Error"
   />
 );
