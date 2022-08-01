@@ -12,5 +12,5 @@ export const Password = () => (
 );
 
 export const Error = () => (
-  <InputField placeholder="Error" type="text" validate={(text) => false} />
+  <InputField placeholder="Error" type="text" validate={(text) => false} errorText="Can't be empty" />
 );
