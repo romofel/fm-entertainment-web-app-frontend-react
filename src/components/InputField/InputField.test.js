@@ -20,15 +20,26 @@ it('should update display based on typing', () => {
   expect(inputField).toHaveValue(inputText);
 });
 
-it('should display error', () => {
+it('should hide error by default', () => {
   render(<InputField />);
   const inputField = screen.queryByTestId('input-field');
 
   expect(inputField).toBeInTheDocument();
 
-  userEvent.type(inputField, "");
-  expect(inputField).toHaveValue("");
+  const errorField = screen.queryByTestId('error-field');
+  expect(errorField).not.toBeInTheDocument();
+});
 
-  const errorDisplay = screen.queryByTestId('error-field');
-  expect(errorDisplay).toBeInTheDocument()
-})
+it('should display error when one is present', () => {
+  const validateFunction = (text) => false;
+  render(<InputField validate={validateFunction} />);
+  const inputField = screen.queryByTestId('input-field');
+
+  expect(inputField).toBeInTheDocument();
+
+  userEvent.type(inputField, '');
+  expect(inputField).toHaveValue('');
+
+  const errorField = screen.queryByTestId('error-field');
+  expect(errorField).toBeInTheDocument();
+});
