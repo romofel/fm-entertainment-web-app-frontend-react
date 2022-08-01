@@ -29,6 +29,13 @@ const inputStyles = css(css`
   }
 `);
 
+const errorStyles = css(css`
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+`);
+
 export default function InputField({
   placeholder,
   type = 'text',
@@ -46,7 +53,11 @@ export default function InputField({
         onChange={(event) => setText(event.target.value)}
         value={text}
       />
-      {validate(text) ? undefined : <p data-testid="error-field">Error</p>}
+      {validate(text) ? undefined : (
+        <p data-testid="error-field" css={errorStyles}>
+          Error
+        </p>
+      )}
     </div>
   );
 }
