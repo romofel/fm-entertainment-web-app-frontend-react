@@ -3,7 +3,7 @@
 import { css } from '@emotion/react';
 import { useState } from 'react';
 
-export default function Input({ placeholder, type="text" }) {
+export default function InputField({ placeholder, type="text" }) {
   const [text, setText] = useState('');
 
   return (

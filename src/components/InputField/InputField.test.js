@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Input from './';
+import InputField from '.';
 
 it('should render component', () => {
-  render(<Input />);
+  render(<InputField />);
   const inputField = screen.queryByTestId('input-field');
 
   expect(inputField).toBeInTheDocument();
@@ -11,7 +11,7 @@ it('should render component', () => {
 
 it('should update display based on typing', () => {
   const inputText = 'randomtext';
-  render(<Input />);
+  render(<InputField />);
   const inputField = screen.queryByTestId('input-field');
 
   expect(inputField).toBeInTheDocument();
@@ -19,3 +19,16 @@ it('should update display based on typing', () => {
   userEvent.type(inputField, inputText);
   expect(inputField).toHaveValue(inputText);
 });
+
+it('should display error', () => {
+  render(<InputField />);
+  const inputField = screen.queryByTestId('input-field');
+
+  expect(inputField).toBeInTheDocument();
+
+  userEvent.type(inputField, "");
+  expect(inputField).toHaveValue("");
+
+  const errorDisplay = screen.queryByTestId('error-field');
+  expect(errorDisplay).toBeInTheDocument()
+})
