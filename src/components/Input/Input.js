@@ -3,13 +3,14 @@
 import { css } from '@emotion/react';
 import { useState } from 'react';
 
-export default function Input({ placeholder }) {
+export default function Input({ placeholder, type }) {
   const [text, setText] = useState('');
 
   return (
     <input
       data-testid="input-field"
       placeholder={placeholder}
+      type={type}
       css={css`
         background-color: #161d2f;
         color: rgb(255, 255, 255);
