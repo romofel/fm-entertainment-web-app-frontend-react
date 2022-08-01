@@ -52,6 +52,7 @@ export default function InputField({
   errorText = 'Error happened',
 }) {
   const [text, setText] = useState('');
+  const [isDirty, setIsDirty] = useState(false);
 
   return (
     <div css={containerStyles}>
@@ -61,18 +62,25 @@ export default function InputField({
         type={type}
         css={[
           inputStyles,
-          !validate(text) && css`
-            border-bottom: 1px solid ${colors.red.hex};
-          `,
+          isDirty &&
+            !validate(text) &&
+            css`
+              border-bottom: 1px solid ${colors.red.hex};
+            `,
         ]}
-        onChange={(event) => setText(event.target.value)}
+        onChange={(event) => {
+          setIsDirty(true);
+          setText(event.target.value);
+        }}
         value={text}
       />
-      {validate(text) ? undefined : (
-        <p data-testid="error-field" css={errorStyles}>
-          {errorText}
-        </p>
-      )}
+      {isDirty ? (
+        validate(text) ? undefined : (
+          <p data-testid="error-field" css={errorStyles}>
+            {errorText}
+          </p>
+        )
+      ) : undefined}
     </div>
   );
 }
