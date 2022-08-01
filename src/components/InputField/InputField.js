@@ -59,7 +59,12 @@ export default function InputField({
         data-testid="input-field"
         placeholder={placeholder}
         type={type}
-        css={inputStyles}
+        css={[
+          inputStyles,
+          !validate(text) && css`
+            border-bottom: 1px solid ${colors.red.hex};
+          `,
+        ]}
         onChange={(event) => setText(event.target.value)}
         value={text}
       />
