@@ -37,9 +37,26 @@ it('should display error when validation fails', () => {
 
   expect(inputField).toBeInTheDocument();
 
-  userEvent.type(inputField, '');
-  expect(inputField).toHaveValue('');
+  userEvent.type(inputField, 'a');
+  expect(inputField).toHaveValue('a');
 
   const errorField = screen.queryByTestId('error-field');
+  expect(errorField).toBeInTheDocument();
+});
+
+it('should not display empty error until after user has typed something', () => {
+  const validateFunction = (text) => false;
+  const typedText = 'S';
+  render(<InputField validate={validateFunction} />);
+  const inputField = screen.queryByTestId('input-field');
+  let errorField = screen.queryByTestId('error-field');
+  expect(errorField).not.toBeInTheDocument();
+
+  userEvent.type(inputField, typedText);
+  expect(inputField).toHaveValue(typedText);
+
+  userEvent.keyboard('[Backspace]');
+  expect(inputField).toHaveValue('');
+  errorField = screen.queryByTestId('error-field');
   expect(errorField).toBeInTheDocument();
 });
