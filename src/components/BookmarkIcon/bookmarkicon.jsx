@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import bookmarkFull from '../../assets/icon-bookmark-full.svg';
 import bookmarkEmpty from '../../assets/icon-bookmark-empty.svg';
 
-const componentStyles = ({ backgroundColor='rgba(16 20 30 / 50%)' }) => css`
+const componentStyles = ({ backgroundColor = 'rgba(16 20 30 / 50%)' }) => css`
   background-color: ${backgroundColor};
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@ const componentStyles = ({ backgroundColor='rgba(16 20 30 / 50%)' }) => css`
   border-radius: 5rem;
 `;
 
-export default function BookmarkIcon({ isChecked=false }) {
+export default function BookmarkIcon({ isChecked = false }) {
   return <div css={componentStyles({})}>
     <img src={isChecked ? bookmarkFull : bookmarkEmpty} alt="bookmark svg" />
   </div>
