@@ -1,3 +1,6 @@
+import { Global, css } from '@emotion/react';
+import emotionReset from 'emotion-reset';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -7,3 +10,12 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  (Story) => (
+    <>
+      <Global styles={css`${emotionReset}`} />
+      <Story />
+    </>
+  )
+];

@@ -4,10 +4,13 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Global, css } from '@emotion/react';
+import emotionReset from 'emotion-reset';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Global styles={css`${emotionReset}`} />
     <BrowserRouter>
       <App />
     </BrowserRouter>
