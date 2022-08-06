@@ -16,7 +16,7 @@ const componentStyles = ({ backgroundColor = 'rgba(16 20 30 / 50%)' }) => css`
 `;
 
 export default function BookmarkIcon({ isChecked = false }) {
-  return <div css={componentStyles({})}>
+  return <div data-testid="bookmark-icon" css={componentStyles({})}>
     <img src={isChecked ? bookmarkFull : bookmarkEmpty} alt="bookmark svg" />
   </div>
 }
