@@ -8,3 +8,7 @@ export default {
 
 export const Empty = () => <Thumbnail />;
 export const Idle = () => <Thumbnail background={trending} />;
+export const Hover = () => <Thumbnail background={trending} />;
+Hover.parameters = {
+  pseudo: { hover: true },
+};
