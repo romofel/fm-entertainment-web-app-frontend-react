@@ -35,14 +35,24 @@ const thumbnailStyles = css`
     }
   }
 
-  & img {
+  & > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 `;
 
-const playerContainerStyles = css``;
+const playerContainerStyles = css`
+  position: absolute;
+  display: flex;
+  width: 117px;
+  height: 48px;
+
+  & > img {
+    width: 30px;
+    height: 30px;
+  }
+`;
 
 function PlayerContainer() {
   return (
