@@ -5,15 +5,35 @@ import { css } from "@emotion/react";
 
 const defaultBackground = "https://placehold.co/600x400";
 
-function PlayContainer() {
-  return <div data-testid="play-container">PlayContainer</div>;
+const playContainerStyles = css`
+  background-color: rgba(0 0 0 / 50%);
+  width: 100%;
+  height: 100%;
+`;
+
+export function PlayContainer() {
+  return <div css={playContainerStyles} data-testid="play-container"></div>;
 }
 
 const thumbnailStyles = css`
+  position: relative;
   width: 255px;
   height: 174px;
   border-radius: 8px;
   overflow: hidden;
+
+  &:hover {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 255px;
+      height: 174px;
+      background-color: rgb(0 0 0 / 50%);
+    }
+  }
 
   & img {
     width: 100%;
@@ -23,19 +43,8 @@ const thumbnailStyles = css`
 `;
 
 export default function Thumbnail({ background = defaultBackground }) {
-  const [onHover, setOnHover] = useState(false);
-
   return (
-    <div
-      css={thumbnailStyles}
-      onMouseEnter={() => {
-        setOnHover(true);
-      }}
-      onMouseLeave={() => {
-        setOnHover(false);
-      }}
-    >
-      {onHover && <PlayContainer />}
+    <div css={thumbnailStyles}>
       {background && (
         <img data-testid="thumbnail-background" src={background} alt="" />
       )}
