@@ -1,8 +1,8 @@
-import Thumbnail from './';
-import trending from '../../assets/thumbnails/1998/trending/large.jpg';
+import Thumbnail from "./";
+import trending from "../../assets/thumbnails/1998/trending/large.jpg";
 
 export default {
-  title: 'Thumbnail',
+  title: "Thumbnail",
   component: Thumbnail,
 };
 
@@ -12,3 +12,4 @@ export const Hover = () => <Thumbnail background={trending} />;
 Hover.parameters = {
   pseudo: { hover: true },
 };
+
