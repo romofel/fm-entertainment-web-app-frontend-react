@@ -25,7 +25,9 @@ const thumbnailStyles = css`
 
   &:hover {
     & .thumbnail-overlay {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
       top: 0;
       left: 0;
@@ -45,8 +47,18 @@ const thumbnailStyles = css`
 const playerContainerStyles = css`
   position: absolute;
   display: flex;
+  align-items: center;
+  gap: 8px;
   width: 117px;
   height: 48px;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: rgba(255 255 255 / 25%);
+  border-radius: 28.5px;
+  color: white;
+  font-family: "Outfit";
+  font-size: 18px;
+  font-weight: 500;
 
   & > img {
     width: 30px;
