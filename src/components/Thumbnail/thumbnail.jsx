@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { css } from "@emotion/react";
-import playIcon from '../../assets/icon-play.svg';
+import playIcon from "../../assets/icon-play.svg";
 
 const defaultBackground = "https://placehold.co/600x400";
 
@@ -45,10 +45,12 @@ const thumbnailStyles = css`
 const playerContainerStyles = css``;
 
 function PlayerContainer() {
-  return <div css={playerContainerStyles}>
-    <img src={playIcon} alt="play icon" />
-    <span>Play</span>
+  return (
+    <div css={playerContainerStyles}>
+      <img src={playIcon} alt="play icon" />
+      <span>Play</span>
     </div>
+  );
 }
 
 export default function Thumbnail({ background = defaultBackground }) {
