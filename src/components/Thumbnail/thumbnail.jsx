@@ -23,6 +23,10 @@ const thumbnailStyles = css`
   border-radius: 8px;
   overflow: hidden;
 
+  .thumbnail-overlay {
+    display: none;
+  }
+
   &:hover {
     & .thumbnail-overlay {
       display: flex;
