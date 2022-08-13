@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { css } from "@emotion/react";
+import playIcon from '../../assets/icon-play.svg';
 
 const defaultBackground = "https://placehold.co/600x400";
 
@@ -23,8 +24,7 @@ const thumbnailStyles = css`
   overflow: hidden;
 
   &:hover {
-    &::before {
-      content: "";
+    & .thumbnail-overlay {
       display: block;
       position: absolute;
       top: 0;
@@ -42,13 +42,24 @@ const thumbnailStyles = css`
   }
 `;
 
+const playerContainerStyles = css``;
+
+function PlayerContainer() {
+  return <div css={playerContainerStyles}>
+    <img src={playIcon} alt="play icon" />
+    <span>Play</span>
+    </div>
+}
+
 export default function Thumbnail({ background = defaultBackground }) {
   return (
     <div css={thumbnailStyles}>
+      <div className="thumbnail-overlay">
+        <PlayerContainer />
+      </div>
       {background && (
         <img data-testid="thumbnail-background" src={background} alt="" />
       )}
     </div>
   );
 }
-
